@@ -29,6 +29,8 @@ def tformat(
                          or those skipped with spaces)
     """
 
+    # Build dict of columns from given input data and 
+    # configuration.
     if isinstance(data, list):
         data_ = data if as_columns else zip(*data)  # transpose data if given as rows
         if headers is not None:
@@ -50,9 +52,12 @@ def tformat(
     else:
         raise TypeError(f"Can't make a table out of: {type(data)}.")
 
+    # Generate default alignmnents and formattings
     alignments = alignments or "<" * len(data_)
     formattings = formattings or " " * len(data_)
 
+    # Generate strign formatted cells in a columnwise
+    # fashion.
     columns: List[List[str]] = list()
     for header, alignment, formatting, column in zip(
         data_.keys(), alignments, formattings, data_.values()
@@ -75,6 +80,8 @@ def tformat(
                 *[cell_format_str.format(val=cell) for cell in column],
             ]
         )
+
+    # Join preformatted cells into table
     return "\n".join(
         " | ".join(cell) if i != 1 else "-+-".join(cell)
         for i, cell in enumerate(zip(*columns))
