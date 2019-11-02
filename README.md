@@ -4,6 +4,9 @@ _Print python collections as tables_
 
 [![Code Style: black](https://img.shields.io/badge/code%20style-black-000000.svg)]("https://github.com/psf/black")
 [![Checked with mypy](http://www.mypy-lang.org/static/mypy_badge.svg)](http://mypy-lang.org/)
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/tprint)](https://pypi.org/project/tprint)
+[![PyPI - License](https://img.shields.io/pypi/l/tprint)](https://pypi.org/project/tprint)
+[![PyPI](https://img.shields.io/pypi/v/tprint)](https://pypi.org/project/tprint)
 
 ## Example
 ```python

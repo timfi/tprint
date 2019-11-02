@@ -25,4 +25,11 @@ setup(
     include_package_data=True,
     python_requires=">=3.7",
     license="MIT",
+    classifiers=[
+        "Development Status :: 3 - Alpha",
+        "Programming Language :: Python :: 3.6",
+        "Programming Language :: Python :: 3.7",
+        "Programming Language :: Python :: 3.8",
+        "License :: OSI Approved :: MIT License",
+    ]
 )
