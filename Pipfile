@@ -6,8 +6,10 @@ verify_ssl = true
 [dev-packages]
 black = "*"
 mypy = "*"
+twine = "*"
 
 [packages]
+tprint = {editable = true,path = "."}
 
 [requires]
 python_version = "3.8"

@@ -42,7 +42,7 @@ def tformat(
             else:
                 data_ = data
         else:
-            data_ = [tuple(data.keys()), *data.values()]
+            data_ = [tuple(data.keys()), *zip(*data.values())]
             if headers is not None:
                 data_ = dict(zip(headers, data_))
             else:
@@ -115,3 +115,34 @@ def tprint(
             formattings=formattings,
         )
     )
+
+
+if __name__ == '__main__':
+    data = {
+        "a": (100, 2, 3, 4),
+        "b": (1, 200, 3, 4),
+        "c": (1, 2, 300, 4),
+        "d": (1, 2, 3, 400),
+    }
+
+    # as rows
+    tprint(data)
+    """
+    0 | 1   | 2   | 3   | 4  
+    --+-----+-----+-----+----
+    a | 100 | 2   | 3   | 4  
+    b | 1   | 200 | 3   | 4  
+    c | 1   | 2   | 300 | 4  
+    d | 1   | 2   | 3   | 400
+    """
+
+    # as columns
+    tprint(data, as_columns=True)
+    """
+    0   | 1   | 2   | 3  
+    ----+-----+-----+----
+    100 | 1   | 1   | 1  
+    2   | 200 | 2   | 2  
+    3   | 3   | 300 | 3  
+    4   | 4   | 4   | 400
+    """
